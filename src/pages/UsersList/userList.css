@@ -1,0 +1,32 @@
+.user-list-header {
+    background-color: #120a8f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.user-list-header h2 {
+    color: #fff;
+    font-size: 3rem;
+}
+
+.user-list-button-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.list-description {
+    width: 100%;
+    display: flex;
+    font-weight: bolder;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.5rem;
+    padding-right: 10%;
+    border-bottom: 1px solid #000;
+}

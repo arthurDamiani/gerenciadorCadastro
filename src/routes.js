@@ -1,13 +1,24 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import Landing from './pages/Landing'
 import UsersList from './pages/UsersList'
+import UserForm from './pages/UserForm'
+
+function CustomRoute({isPrivate, ...rest}) {
+    if(isPrivate && !localStorage.getItem('authorizated')) {
+        return <Redirect to='/' />
+    }
+    return <Route {...rest} />
+}
 
 function Routes() {
     return (
         <BrowserRouter>
-            <Route path='/' exact component={Landing} />
-            <Route path='/users' exact component={UsersList} />
+            <Switch>
+                <CustomRoute path='/' exact component={Landing} />
+                <CustomRoute isPrivate path='/users' exact component={UsersList} />
+                <CustomRoute isPrivate path={['/form', '/form/:id']} exact component={UserForm} />
+            </Switch>
         </BrowserRouter>
     )
 }

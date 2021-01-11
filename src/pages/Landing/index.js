@@ -1,8 +1,7 @@
 import React, {useState, useContext} from 'react'
-import {useHistory} from 'react-router-dom'
 import {Button, TextField, InputAdornment} from '@material-ui/core'
+import {useHistory} from 'react-router-dom'
 import {Person, Lock} from '@material-ui/icons'
-import {Context} from '../../contexts/AuthContext'
 import api from '../../services/api'
 
 import './landing.css'
@@ -12,27 +11,25 @@ function Landing() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const {authenticated, setAuthenticatedTrue} = useContext(Context)
-
     async function handleLogin(e) {
         e.preventDefault()
-        const { data: {token} } = await api.post('/autenticacao', {
+        await api.post('/autenticacao', {
             usuario: username,
             senha: password
         })
-        .then(() => {
-            localStorage.setItem('token', JSON.stringify(token))
-            api.defaults.headers.Authorization = `Bearer ${token}`
+        .then((response) => {
+            localStorage.setItem('token', response.data.token)
+            localStorage.setItem('authorizated', true)
+            api.defaults.headers.Authorization = `BEARER ${response.data.token}`
             history.push('/users')
-            console.log(token)
-            setAuthenticatedTrue()
         })
+        .catch(() => alert('Usuário ou senha incorreta!'))
     }
 
     return (
         <div className='login-container'>
             <h1 className='login-title'>Login</h1>
-            <form className='login-box' onSubmit={handleLogin}>
+            <form className='login-form' onSubmit={handleLogin}>
                 <TextField
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
