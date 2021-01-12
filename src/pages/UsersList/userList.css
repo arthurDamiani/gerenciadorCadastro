@@ -1,4 +1,12 @@
+.user-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .user-list-header {
+    width: 100%;
     background-color: #120a8f;
     display: flex;
     flex-direction: column;
@@ -29,4 +37,10 @@
     padding-left: 0.5rem;
     padding-right: 10%;
     border-bottom: 1px solid #000;
+}
+
+@media(max-width: 930px) {
+    .list-description {
+        display: none;
+    }
 }

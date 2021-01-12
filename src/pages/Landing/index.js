@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState} from 'react'
 import {Button, TextField, InputAdornment} from '@material-ui/core'
 import {useHistory} from 'react-router-dom'
 import {Person, Lock} from '@material-ui/icons'

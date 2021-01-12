@@ -19,7 +19,7 @@ function UsersList() {
     useEffect(() => showUsers())
 
     return (
-        <div>
+        <div className='user-list-container'>
             <header className='user-list-header'>
                 <h2>Lista de usuários</h2>
                 <div className='user-list-button-container'>
