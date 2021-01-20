@@ -5,7 +5,7 @@ import UsersList from './pages/UsersList'
 import UserForm from './pages/UserForm'
 
 function CustomRoute({isPrivate, ...rest}) {
-    if(isPrivate && !localStorage.getItem('authorizated')) {
+    if(isPrivate && !sessionStorage.getItem('authorizated')) {
         return <Redirect to='/' />
     }
     return <Route {...rest} />

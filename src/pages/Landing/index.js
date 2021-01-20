@@ -18,8 +18,8 @@ function Landing() {
             senha: password
         })
         .then((response) => {
-            localStorage.setItem('token', response.data.token)
-            localStorage.setItem('authorizated', true)
+            sessionStorage.setItem('token', response.data.token)
+            sessionStorage.setItem('authorizated', true)
             api.defaults.headers.Authorization = `BEARER ${response.data.token}`
             history.push('/users')
         })

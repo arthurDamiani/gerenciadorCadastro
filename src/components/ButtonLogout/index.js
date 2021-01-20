@@ -7,8 +7,8 @@ function ButtonLogout() {
     const history = useHistory()
 
     function handleLogout() {
-        localStorage.removeItem('token')
-        localStorage.removeItem('authorizated')
+        sessionStorage.removeItem('token')
+        sessionStorage.removeItem('authorizated')
         api.defaults.headers.Authorization = undefined
         history.push('/')
     }

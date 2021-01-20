@@ -5,7 +5,7 @@ import api from '../../services/api'
 import './userBox.css'
 
 function UserBox(props) {
-    const token = localStorage.getItem('token')
+    const token = sessionStorage.getItem('token')
     const header = {
         headers: {'Authorization': 'Bearer ' + token}
     }

@@ -20,7 +20,7 @@ function UserForm() {
     const [sex, setSex] = useState('')
     const [accountType, setAccountType] = useState(1)
 
-    const token = localStorage.getItem('token')
+    const token = sessionStorage.getItem('token')
     const header = {
         headers: {'Authorization': 'Bearer ' + token}
     }
