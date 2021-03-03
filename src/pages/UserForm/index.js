@@ -14,7 +14,7 @@ function UserForm() {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [email, setEmail] = useState('')
 
-    useEffect(() => {getUserData()},[])
+    useEffect(() => {getUserData()})
 
     const token = sessionStorage.getItem('token')
     api.defaults.headers.common['Authorization'] = 'Bearer ' + token
@@ -22,9 +22,10 @@ function UserForm() {
     async function getUserData() {
         await api.get(`user/${id}`)
         .then((res) => {
-            console.log(res.data)
-            setName(res.data.name)
-            setEmail(res.data.email)
+            if(!name) {
+                setName(res.data.name)
+                setEmail(res.data.email)
+            }
         })
     }
 
