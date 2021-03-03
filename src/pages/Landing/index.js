@@ -8,19 +8,19 @@ import './landing.css'
 
 function Landing() {
     const history = useHistory()
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     async function handleLogin(e) {
         e.preventDefault()
-        await api.post('/autenticacao', {
-            usuario: username,
-            senha: password
+        await api.post('/auth', {
+            email: email,
+            password: password
         })
-        .then((response) => {
-            sessionStorage.setItem('token', response.data.token)
+        .then((res) => {
+            sessionStorage.setItem('token', res.data.token)
             sessionStorage.setItem('authorizated', true)
-            api.defaults.headers.Authorization = `BEARER ${response.data.token}`
+            api.defaults.headers.Authorization = `BEARER ${res.data.token}`
             history.push('/users')
         })
         .catch(() => alert('Usuário ou senha incorreta!'))
@@ -31,8 +31,8 @@ function Landing() {
             <h1 className='login-title'>Login</h1>
             <form className='login-form' onSubmit={handleLogin}>
                 <TextField
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position='end'>
@@ -40,7 +40,7 @@ function Landing() {
                             </InputAdornment>
                         )
                     }}
-                    label='Nome de usuário'
+                    label='Email'
                     variant='outlined'
                     size='small'
                     type='text'

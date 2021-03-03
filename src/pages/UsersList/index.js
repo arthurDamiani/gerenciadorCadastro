@@ -10,7 +10,7 @@ function UsersList() {
     const [users, setUsers] = useState([])
 
     async function showUsers() {
-        await api.get('/usuarios')
+        await api.get('/user')
         .then((response) => {
             setUsers(response.data.content)
         })
@@ -30,24 +30,14 @@ function UsersList() {
             <div className='list-description'>
                 <p>Id</p>
                 <p>Nome</p>
-                <p>Usuário</p>
-                <p>Idade</p>
                 <p>Email</p>
-                <p>Telefone</p>
-                <p>Sexo</p>
-                <p>Tipo</p>
             </div>
             {users.map((user, index) => {
                 return <UserBox 
                             key={index}
                             id={user.id}
-                            name={user.nome}
-                            username={user.usuario}
-                            age={user.idade}
-                            phone={user.telefone}
+                            name={user.name}
                             email={user.email}
-                            sex={user.sexo}
-                            type={user.perfilTipo === 2 ? 'Administrador' : 'Normal'}
                         />
             })}
         </div>
