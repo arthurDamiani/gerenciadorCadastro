@@ -54,7 +54,7 @@ function UserForm() {
             alert('Usuário cadastrado com sucesso!')
             setTimeout(() => history.push('/users'), 3000)
         })
-        .catch(() => alert('Falha ao cadastrar usuário!'))
+        .catch(() => alert('Email já cadastrado!'))
     }
 
     const [confirmPasswordError, setConfirmPasswordError] = useState({valid:true, text:''})
