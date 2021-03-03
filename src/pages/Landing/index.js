@@ -67,6 +67,7 @@ function Landing() {
                 <div className='button-login-container'>
                     <Button variant='contained' color='primary' type='submit' fullWidth>Entrar</Button>
                 </div>
+                <p>Não tem uma conta ?<a href='/form'>Clique aqui!</a></p>
             </form>
         </div>
     )

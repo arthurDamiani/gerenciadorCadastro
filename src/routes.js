@@ -17,7 +17,7 @@ function Routes() {
             <Switch>
                 <CustomRoute path='/' exact component={Landing} />
                 <CustomRoute isPrivate path='/users' exact component={UsersList} />
-                <CustomRoute isPrivate path={['/form', '/form/:id']} exact component={UserForm} />
+                <CustomRoute path={['/form', '/form/:id']} exact component={UserForm} />
             </Switch>
         </BrowserRouter>
     )

@@ -28,7 +28,11 @@
 
 .button-login-container {
     width: 20rem;
-    margin-top: 1rem;
+    margin: 1rem 0;
+}
+
+a {
+    text-decoration: underline;
 }
 
 @media(max-width: 500px) {
