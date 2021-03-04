@@ -37,7 +37,7 @@ function UserForm() {
         })
         .then(() => {
             alert('Usuário editado com sucesso!')
-            setTimeout(() => history.push('/users'), 3000)
+            history.push('/users')
         })
         .catch(() => alert('Não foi possível editar o usuário!'))
 
@@ -52,7 +52,7 @@ function UserForm() {
         })
         .then(() => {
             alert('Usuário cadastrado com sucesso!')
-            setTimeout(() => history.push('/users'), 3000)
+            history.push('/users')
         })
         .catch(() => alert('Email já cadastrado!'))
     }

@@ -11,7 +11,7 @@ function UserBox(props) {
     async function deleteUser() {
         await api.delete(`user/${props.id}`)
         .then(() => alert('Usuário apagado com sucesso!'))
-        .catch(() => alert('Não foi possível apagar o usuário'), console.log(token))
+        .catch(() => alert('Você não tem permissão para excluir um usuário!'))
     }
 
     return (
